@@ -14,3 +14,5 @@ nohup ${TARGET_DIRS}/bin/kafka-server-start.sh ${TARGET_DIRS}/config/server.prop
 
 echo "nohup ${TARGET_DIRS}/bin/zookeeper-server-start.sh ${TARGET_DIRS}/config/zookeeper.properties 1>>/bin/custom_script/kafka_execute_log.txt 2>&1" >> /etc/rc.d/rc.local
 echo "nohup ${TARGET_DIRS}/bin/kafka-server-start.sh ${TARGET_DIRS}/config/server.properties 1>>/bin/custom_script/kafka_execute_log.txt 2>&1" >> /etc/rc.d/rc.local
+
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic my_topic --create
